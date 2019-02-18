@@ -1,0 +1,39 @@
+<- Matrix ----------------------------------------------------------------------
+The Vector Class will allow us to introduce a convention. To orient themselves in
+3D we will work in a "Right hand" mark.
+
+
+• The Class constructor is waiting for an array. The following keys are required:
+’preset’: the matrix type to, mandatory. The value must be one of the Class
+constants previoulsy defined.
+’scale’: the scale factor, mandatory when ’preset’ is worth SCALE.
+’angle’: the rotation angle in radians, mandatory when ’preset’ is worth RX, RY
+or RZ.
+’vtc’: translation vector, mandatory when ’preset’ is worth TRANSLATION.
+’fov’: projection field of view in degrees mandatory when ’preset’ is worth PROJECTION.
+’ratio’: projected image ratio, mandatory when ’preset’ is worth PROJECTION.
+’near’: projection’s near clipping plane mandatory when ’preset’ is worth PROJECTION.
+’far’: projection’s far clipping plane mandatory when ’preset’ is worth PROJECTION.
+
+You can use:
+$vtx = new Vertex( array( 'x' => 20.0, 'y' => 20.0, 'z' => 0.0 ) );
+$vtc = new Vector( array( 'dest' => $vtx ) );
+new Matrix( array( 'preset' => Matrix::TRANSLATION, 'vtc' => $vtc ) );
+new Matrix( array( 'preset' => Matrix::SCALE, 'scale' => 10.0 ) );
+new Matrix( array( 'preset' => Matrix::RX, 'angle' => M_PI_4 ) );
+new Matrix( array( 'preset' => Matrix::RY, 'angle' => M_PI_2 ) );
+new Matrix( array( 'preset' => Matrix::RZ, 'angle' => 2 * M_PI ) );
+new Matrix( array( 'preset' => Matrix::PROJECTION,
+						'fov' => 60,
+						'ratio' => 640/480,
+						'near' => 1.0,
+						'far' => -50.0 ) );
+
+Matrix mult( Matrix $rhs ) : returns the multiplication of both matrices.
+Vertex transformVertex( Vertex $vtx ) : returns a new vertex resulting from
+the transformation of the vertex by the matrix.
+The class provides the following methods :
+$T->mult( $RX )->mult( $RY )->mult( $S );
+$vtxA = new Vertex( array( 'x' => 1.0, 'y' => 1.0, 'z' => 0.0 ) );
+$M->transformVertex( $vtxA );
+---------------------------------------------------------------------- Matrix ->

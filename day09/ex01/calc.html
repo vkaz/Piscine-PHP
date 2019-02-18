@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <script>
+        function check(){
+            var left = Number(document.getElementById('linput').value);
+            var right = Number(document.getElementById('rinput').value);
+            var e = document.getElementById('todo');
+            var option = e.options[e.selectedIndex].text;
+            if (left < 0 || right < 0 || isNaN(left) == true || isNaN(right)) {
+                alert("Error :(");
+                return ;
+            }
+            if (right == 0 && (option == "/" || option == "%")) {
+                alert("It's over 9000!");
+                console.log("It's over 9000!");
+                return ;
+            }
+            var out;
+            if (option == "+")
+                out = left + right;
+            else if (option == "-")
+                out = left - right;
+            else if (option == "*")
+                out = left * right;
+            else if (option == "/" && right > 0)
+                out = left / right;
+            else if (option == "%" && right > 0)
+                out = left % right;
+            console.log(out);
+            alert(out);
+        }
+        setInterval(function () {alert("Please, use me...");}, 30000);
+    </script>
+</head>
+<body>
+<input type="text" id="linput">
+<select id="todo">
+    <option value="add">+</option>
+    <option value="min">-</option>
+    <option value="multi">*</option>
+    <option value="split">/</option>
+    <option value="mod">%</option>
+</select>
+<input type="text" id="rinput">
+<input type="submit" value="Try me!" onclick="check()">
+</body>
+</html>

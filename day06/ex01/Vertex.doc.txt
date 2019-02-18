@@ -1,0 +1,35 @@
+<- Vertex ----------------------------------------------------------------------
+The Vertex class takes coordinates x, y, z and homogeneous coordinates w(default it's 1)
+and can take color from the Color class handles RGB colors.
+
+Look at ex00/Color.doc.txt.
+
+An instance can be contructed from either (x, y, z) value:
+new Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 0.0 ) );
+
+Or you can use it with color(defualt color is white):
+$green = new Color( array( 'red' =>   0, 'green' => 255, 'blue' =>   0 ) );
+new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0, 'color' => $green ) );
+
+The class provides the following methods :
+Vertex getX();
+Show you x;
+Vertex getY();
+Show you y;
+Vertex getZ();
+Show you z;
+Vertex getW();
+Show you z;
+Vertex getColor();
+Show you color;
+Vertex setX($x);
+Change coordinate x;
+Vertex setY($y);
+Change coordinate y;
+Vertex setZ($z);
+Change coordinate z;
+Vertex setW($w);
+Change coordinate w;
+Vertex setColor($color);
+Change color;
+---------------------------------------------------------------------- Vertex ->

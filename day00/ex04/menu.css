@@ -1,0 +1,42 @@
+nav ul {
+  background: red;
+  text-align: center;
+  list-style: none;
+}
+.topm > li {
+  display: inline-block;
+  position: relative;
+}
+.topm > li > a {  
+  padding: 40px 40px;
+  font-size: 25px;
+  text-transform: uppercase;
+  color: green;
+  letter-spacing: 4px;
+}
+nav a {
+  text-decoration: none;
+  display: block;
+}
+.subm {
+  position: absolute;
+  background: white;
+  visibility: hidden;
+  transform-origin: 0% 0%;
+  transition: .1s linear;
+}
+.subm li a {
+  color: brown;
+  padding: 10px 20px;
+  font-size: 23px;
+  border-bottom: 1px solid red;
+}
+.subm .subm {
+  left: 100%;
+  top: -1px;
+  transition: .1s linear;
+}
+nav li:hover > .subm {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BALLOON</title>
+    <style>
+        #ball {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            position: absolute;
+            top: 20%;
+            left: 40%;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        var size = 200;
+        var col = ["red", "green", "blue"];
+        var t = 0;
+        $(document).ready(function () {
+            $('#ball').click(plus);
+            $('#ball').mouseout(qwe);
+        });
+        function plus() {
+            if (size < 420){
+                if (t == 2)
+                    t = 0;
+                else
+                    t++;
+                size += 10;
+                $('#ball').css({'background' : col[t], 'height' : size, 'width' : size});
+            }
+            else if (size > 415) {
+                t++;
+                if (t == 2)
+                    t = 0;
+                size = 200;
+                $('#ball').css({'background' : col[t], 'height' : size, 'width' : size});
+            }
+        };
+        function qwe() {
+            if (t > 0)
+                t--;
+            else
+                t = 2;
+            if (size > 200)
+                size -= 5;
+            $('#ball').css({'background' : col[t], 'height' : size, 'width' : size});
+        }
+    </script>
+</head>
+<body>
+<div id="ball"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BALLOON</title>
+    <style>
+        #ball {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            position: absolute;
+            top: 20%;
+            left: 40%;
+        }
+    </style>
+    <script>
+        var size = 200;
+        var col = ["red", "green", "blue"];
+        var t = 0;
+        window.onload = function () {
+            document.getElementById('ball').addEventListener('click', plus);
+            document.getElementById('ball').addEventListener('mouseout', qwe);
+        }
+        function plus() {
+            if (size < 420){
+                if (t < 2)
+                    t++;
+                else
+                    t = 0;
+                size += 10;
+                document.getElementById('ball').style.height = size + 'px';
+                document.getElementById('ball').style.width = size + 'px';
+                document.getElementById('ball').style.background = col[t];
+            }
+            else if (size > 415) {
+                if (t < 2)
+                    t++;
+                else
+                    t = 0;
+                size = 200;
+                document.getElementById('ball').height = size + 'px';
+                document.getElementById('ball').width = size + 'px';
+                document.getElementById('ball').background = col[t];
+            }
+        };
+        function qwe() {
+            if (t > 0)
+                t--;
+            else
+                t = 2;
+            if (size > 200)
+                size -= 5;
+            document.getElementById('ball').style.height = size + 'px';
+            document.getElementById('ball').style.width = size + 'px';
+            document.getElementById('ball').style.background = col[t];
+        }
+    </script>
+</head>
+<body>
+<div id="ball"></div>
+</body>
+</html>

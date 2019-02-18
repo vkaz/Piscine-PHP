@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        function check(){
+            var left = $('#linput')[0].value;
+            var right = $('#rinput')[0].value;
+            var option = $('#todo')[0].selectedIndex;
+            if ((left < 0 || right < 0) ||
+                (isNaN(left) || isNaN(right))) {
+                alert("Error :(");
+                return ;
+            }
+            left = Number(left);
+            right = Number(right);
+            if (right == 0 && (option == 3 || option == 4)) {
+                alert("It's over 9000!");
+                return ;
+            }
+            var out;
+            if (option == 0)
+                out = left + right;
+            else if (option == 1)
+                out = left - right;
+            else if (option == 2)
+                out = left * right;
+            else if (option == 3 && right > 0)
+                out = left / right;
+            else if (option == 4 && right > 0)
+                out = left % right;
+            console.log(out);
+            alert(out);
+        }
+        setInterval(function () {alert("Please, use me...");}, 30000);
+    </script>
+</head>
+<body>
+<input type="text" id="linput">
+<select id="todo">
+    <option value="add">+</option>
+    <option value="min">-</option>
+    <option value="multi">*</option>
+    <option value="split">/</option>
+    <option value="mod">%</option>
+</select>
+<input type="text" id="rinput">
+<input type="submit" value="Try me!" onclick="check()">
+</body>
+</html>

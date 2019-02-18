@@ -1,0 +1,24 @@
+<- Camera ----------------------------------------------------------------------
+The Camera Class will return Camera position.
+
+
+• The Class constructor is waiting for an array. The following keys are required:
+’origin’: the vertex type, which mean camera position.
+’orientaton’: to orient themselves in 3D.
+’width’: the width of the screen.
+’height’: the height of the screen.
+’fov’: the field of view of the projected image in degrees.
+’near’: the near clipping plane.
+’far’: the far clipping plane.
+
+You can use:
+$vtxO = new Vertex( array( 'x' => 20.0, 'y' => 20.0, 'z' => 80.0 ) );
+$R    = new Matrix( array( 'preset' => Matrix::RY, 'angle' => M_PI ) );
+$cam  = new Camera( array( 'origin' => $vtxO,
+						   'orientation' => $R,
+						   'width' => 640,
+						   'height' => 480,
+						   'fov' => 60,
+						   'near' => 1.0,
+						   'far' => 100.0) );
+---------------------------------------------------------------------- Camera ->
